@@ -1,6 +1,6 @@
 ﻿namespace Domain.Models
 {
-    public class Entit<TKey>
+    public class Entity<TKey>
     {
         public virtual TKey Id { get; set; }
     }
