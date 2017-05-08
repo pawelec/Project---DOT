@@ -4,6 +4,8 @@ namespace Core.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using System.Collections.Generic;
+    using Domain.Models.Wishes;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Core.Contexts.Context>
     {
@@ -14,18 +16,25 @@ namespace Core.Migrations
 
         protected override void Seed(Core.Contexts.Context context)
         {
-            //  This method will be called after migrating to the latest version.
+            SeedWishes(context);
+        }
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+        private static void SeedWishes(Core.Contexts.Context context)
+        {
+            context.Wishes.AddRange(new List<Wish>()
+            {
+                new Wish
+                {
+                   Created = DateTime.UtcNow,
+                   Content = "Byle nie ITN :)"
+                },
+                new Wish
+                {
+                    Created = DateTime.UtcNow.AddDays(-7),
+                    Content = "Zadowoli mnie 5.5."
+                }
+            });
+            context.SaveChanges();
         }
     }
 }
