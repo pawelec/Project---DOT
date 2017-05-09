@@ -9,7 +9,7 @@ using Core.Extensions;
 
 namespace Core.Repositories
 {
-    public class WishesRepository : IRepository<int, Wish>
+    public class WishesRepository : IWishesRepository
     {
         protected readonly Context _Context;
 
