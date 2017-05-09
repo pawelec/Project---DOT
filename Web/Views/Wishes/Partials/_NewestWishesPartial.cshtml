@@ -1,9 +1,17 @@
 ﻿@model IEnumerable<Web.Models.ViewModels.Wishes.WishViewModel>
 
-<h2>Najnowsze wpisy</h2>
-<div>
-    @foreach (var wish in Model)
-    {
-        <p>@wish.Content</p>
-    }
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Najnowsze wpisy</h3>
+    </div>
+    <div class="panel-body">
+        @foreach(var wish in Model)
+        {
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    @wish.Content
+                </div>
+            </div>
+        }
+    </div>
 </div>
