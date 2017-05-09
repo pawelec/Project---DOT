@@ -29,5 +29,12 @@ namespace Core.Repositories
 
         public ICollection<Wish> Get()
             => this._Context.Wishes.ToList();
+
+        public int Create(Wish entity)
+        {
+            var id = (this._Context.Wishes.Add(entity).Id);
+            this._Context.SaveChanges();
+            return id;
+        }
     }
 }

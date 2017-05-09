@@ -12,5 +12,7 @@ namespace Domain.Interfaces
         TEntity Get(TKey key);
         ICollection<TEntity> Get(Expression<Func<TEntity, bool>> predicate);
         ICollection<TEntity> Get();
+
+        TKey Create(TEntity entity);
     }
 }
