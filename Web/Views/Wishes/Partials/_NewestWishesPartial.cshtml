@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Web.Models.ViewModels.Wishes.WishViewModel>
+
+<h2>Najnowsze wpisy</h2>
+<div>
+    @foreach (var wish in Model)
+    {
+        <p>@wish.Content</p>
+    }
+</div>
