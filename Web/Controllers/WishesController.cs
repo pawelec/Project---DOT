@@ -12,10 +12,12 @@ namespace Web.Controllers
     public class WishesController : Controller
     {
         protected readonly IWishesRepository _wishesRepository;
+        protected readonly IUsersRepository _usersRepository;
 
         public WishesController()
         {
             this._wishesRepository = new WishesRepository();
+            this._usersRepository = new UsersRepository();
         }
 
         [AllowAnonymous]
@@ -35,8 +37,9 @@ namespace Web.Controllers
             if (!ModelState.IsValid)
                 return View("Create");
 
-            this._wishesRepository.Create(
-                AutoMapper.Mapper.Map<Wish>(viewModel));
+            var domainWish = AutoMapper.Mapper.Map<Wish>(viewModel);
+            domainWish.Creator = this._usersRepository.Get(this.User.Identity.Name);
+            this._wishesRepository.Create(domainWish);
 
             return RedirectToAction("Index", "Home");
         }
