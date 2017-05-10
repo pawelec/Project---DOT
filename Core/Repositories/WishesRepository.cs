@@ -33,6 +33,7 @@ namespace Core.Repositories
         public int Create(Wish entity)
         {
             var id = (this._Context.Wishes.Add(entity).Id);
+            this._Context.Users.Attach(entity.Creator);
             this._Context.SaveChanges();
             return id;
         }

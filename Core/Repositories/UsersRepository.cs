@@ -13,6 +13,11 @@ namespace Core.Repositories
             this._context = new Contexts.Context();
         }
         public User Get(string identityName)
-            => this._context.Users.FirstOrDefault(user => user.UserName == identityName);
+        {
+            using(var cxt = new Contexts.Context())
+            {
+                return cxt.Users.FirstOrDefault(user => user.UserName == identityName);
+            }
+        }
     }
 }

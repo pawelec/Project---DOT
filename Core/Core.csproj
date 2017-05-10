@@ -59,6 +59,10 @@
     <Compile Include="Migrations\201705082127181_Initial - users and wishes.Designer.cs">
       <DependentUpon>201705082127181_Initial - users and wishes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705100610262_Add one-to-many relation between users and wishes..cs" />
+    <Compile Include="Migrations\201705100610262_Add one-to-many relation between users and wishes..Designer.cs">
+      <DependentUpon>201705100610262_Add one-to-many relation between users and wishes..cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\UsersRepository.cs" />
@@ -77,6 +81,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201705082127181_Initial - users and wishes.resx">
       <DependentUpon>201705082127181_Initial - users and wishes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705100610262_Add one-to-many relation between users and wishes..resx">
+      <DependentUpon>201705100610262_Add one-to-many relation between users and wishes..cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
