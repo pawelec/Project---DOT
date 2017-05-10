@@ -12,11 +12,12 @@ namespace Core.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            Database.SetInitializer<Contexts.Context>(new DropCreateDatabaseAlways<Contexts.Context>());
         }
 
         protected override void Seed(Core.Contexts.Context context)
         {
-            SeedWishes(context);
+            //SeedWishes(context);
         }
 
         private static void SeedWishes(Core.Contexts.Context context)
