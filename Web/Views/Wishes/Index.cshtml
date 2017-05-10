@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Web.Models.ViewModels.Wishes.WishViewModel>
+
+@{
+    ViewBag.Title = "Życzenia";
+}
+
+<h2>Zyczenia</h2>
+
+<p>
+    @Html.ActionLink("Dodaj nowe", "Create")
+</p>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        @foreach (var wish in Model.OrderByDescending(wish => wish.Created))
+        {
+            <div class="col-md-4 panel panel-default">
+                <div class="panel-body">
+                    <p>@wish.Content</p>
+                    <p class="pull-right"><small>@wish.Created</small></p>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -23,6 +23,14 @@ namespace Web.Controllers
         }
 
         [AllowAnonymous]
+        public ActionResult Index()
+        {
+            var wishes = this._wishesRepository.Get();
+            var viewModels = AutoMapper.Mapper.Map<IEnumerable<WishViewModel>>(wishes);
+            return View(viewModels);
+        }
+
+        [AllowAnonymous]
         public PartialViewResult GetNewestWishesPartial()
         {
             var newestWishes = AutoMapper.Mapper.Map<IEnumerable<WishViewModel>>(
@@ -43,7 +51,7 @@ namespace Web.Controllers
             domainWish.Creator = this._usersRepository.Get(this.User.Identity.Name);
             this._wishesRepository.Create(domainWish);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index");
         }
     }
 }

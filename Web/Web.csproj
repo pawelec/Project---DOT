@@ -267,6 +267,7 @@
     <Content Include="Views\Wishes\Partials\_NewestWishesPartial.cshtml" />
     <Content Include="Views\Home\Partials\_NewestCommentsPartial.cshtml" />
     <Content Include="Views\Wishes\Create.cshtml" />
+    <Content Include="Views\Wishes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
