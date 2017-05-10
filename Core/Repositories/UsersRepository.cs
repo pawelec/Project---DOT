@@ -8,16 +8,13 @@ namespace Core.Repositories
     {
         protected readonly Contexts.Context _context;
 
-        public UsersRepository()
+        public UsersRepository(Contexts.Context context)
         {
-            this._context = new Contexts.Context();
+            this._context = context;
         }
         public User Get(string identityName)
         {
-            using(var cxt = new Contexts.Context())
-            {
-                return cxt.Users.FirstOrDefault(user => user.UserName == identityName);
-            }
+                return this._context.Users.FirstOrDefault(user => user.UserName == identityName);
         }
     }
 }

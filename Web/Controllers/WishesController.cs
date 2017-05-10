@@ -1,4 +1,5 @@
-﻿using Core.Repositories;
+﻿using Core.Contexts;
+using Core.Repositories;
 using Domain.Interfaces;
 using Domain.Models.Wishes;
 using System.Collections.Generic;
@@ -16,8 +17,9 @@ namespace Web.Controllers
 
         public WishesController()
         {
-            this._wishesRepository = new WishesRepository();
-            this._usersRepository = new UsersRepository();
+            var cxt = new Context();
+            this._wishesRepository = new WishesRepository(cxt);
+            this._usersRepository = new UsersRepository(cxt);
         }
 
         [AllowAnonymous]

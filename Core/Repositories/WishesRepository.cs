@@ -13,9 +13,9 @@ namespace Core.Repositories
     {
         protected readonly Context _Context;
 
-        public WishesRepository()
+        public WishesRepository(Context context)
         {
-            this._Context = new Context();
+            this._Context = context;
         }
 
         public Wish Get(int key) => this._Context.Wishes.Find(key);
@@ -33,7 +33,7 @@ namespace Core.Repositories
         public int Create(Wish entity)
         {
             var id = (this._Context.Wishes.Add(entity).Id);
-            this._Context.Users.Attach(entity.Creator);
+            //this._Context.Users.Attach(entity.Creator);
             this._Context.SaveChanges();
             return id;
         }
