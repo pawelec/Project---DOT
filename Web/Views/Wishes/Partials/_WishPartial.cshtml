@@ -1,0 +1,10 @@
+﻿@model Web.Models.ViewModels.Wishes.WishViewModel
+
+<a style="color: inherit" href="@Url.Action("Details", "Wishes", new { id = Model.Id })">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>@Model.Content</p>
+            <p class="pull-right"><small>@Model.Created</small></p>
+        </div>
+    </div>
+</a>

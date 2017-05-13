@@ -38,6 +38,12 @@ namespace Web.Controllers
             return PartialView("Partials/_NewestWishesPartial", newestWishes);
         }
 
+        public ActionResult Details(int id)
+        {
+            var wish = this._wishesRepository.Get(id);
+            var viewModel = AutoMapper.Mapper.Map<WishViewModel>(wish);
+            return View();
+        }
         public ActionResult Create()
             => View();
 

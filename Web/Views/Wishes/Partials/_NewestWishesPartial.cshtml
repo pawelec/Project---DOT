@@ -7,11 +7,7 @@
     <div class="panel-body">
         @foreach(var wish in Model)
         {
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    @wish.Content
-                </div>
-            </div>
+            @Html.Partial("Partials/_WishPartial", wish)
         }
     </div>
 </div>
