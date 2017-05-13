@@ -98,40 +98,40 @@ namespace Core.Migrations
             });
             context.SaveChanges();
         }
-        private static void SeedComments(Contexts.Context context)
-        {
-            context.Comments.AddRange(new List<Comment>
-            {
-                new Comment
-                {
-                    Content = "Fajne, podoba mi siê.",
-                    Created = DateTime.UtcNow,
-                    Wish = context.Wishes.FirstOrDefault(),
-                    Creator = "Pafcio"
-                },
-                new Comment
-                {
-                    Content = "No niech bêdzie...",
-                    Created = DateTime.UtcNow,
-                    Wish = context.Wishes.FirstOrDefault(),
-                    Creator = "Kafcia"
-                },
-                new Comment
-                {
-                    Content = "Taki sobie komentarz",
-                    Created = DateTime.UtcNow,
-                    Wish = context.Wishes.FirstOrDefault(),
-                    Creator = "Pafcio Pafcia"
-                },
-                new Comment
-                {
-                    Content = "Nie no kicha!",
-                    Created = DateTime.UtcNow,
-                    Wish = context.Wishes.LastOrDefault(),
-                    Creator = "Prowadz¹cy"
-                }
-            });
-            context.SaveChanges();
-        }
+        //private static void SeedComments(Contexts.Context context)
+        //{
+        //    context.Comments.AddRange(new List<Comment>
+        //    {
+        //        new Comment
+        //        {
+        //            Content = "Fajne, podoba mi siê.",
+        //            Created = DateTime.UtcNow,
+        //            Wish = context.Wishes.FirstOrDefault(),
+        //            Creator = "Pafcio"
+        //        },
+        //        new Comment
+        //        {
+        //            Content = "No niech bêdzie...",
+        //            Created = DateTime.UtcNow,
+        //            Wish = context.Wishes.FirstOrDefault(),
+        //            Creator = "Kafcia"
+        //        },
+        //        new Comment
+        //        {
+        //            Content = "Taki sobie komentarz",
+        //            Created = DateTime.UtcNow,
+        //            Wish = context.Wishes.FirstOrDefault(),
+        //            Creator = "Pafcio Pafcia"
+        //        },
+        //        new Comment
+        //        {
+        //            Content = "Nie no kicha!",
+        //            Created = DateTime.UtcNow,
+        //            Wish = context.Wishes.LastOrDefault(),
+        //            Creator = "Prowadz¹cy"
+        //        }
+        //    });
+        //    context.SaveChanges();
+        ////}
     }
 }

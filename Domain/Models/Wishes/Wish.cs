@@ -7,11 +7,11 @@ namespace Domain.Models.Wishes
     {
         public string Content { get; set; }
         public virtual Users.User Creator { get; set; }
-        public virtual ICollection<Comment> Comments {get;set;}
+        //public virtual ICollection<Comment> Comments {get;set;}
 
         public Wish()
         {
-            this.Comments = new HashSet<Comment>();
+            //this.Comments = new HashSet<Comment>();
         }
     }
 }
