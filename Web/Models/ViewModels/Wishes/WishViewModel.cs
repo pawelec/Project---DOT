@@ -6,6 +6,6 @@ namespace Web.Models.ViewModels.Wishes
     {
         public string Content { get; set; }
         public DateTime Created { get; set; }
-        //public string Creator { get; set; }
+        public string Creator { get; set; }
     }
 }
