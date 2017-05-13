@@ -24,7 +24,7 @@ namespace Core.Migrations
             SeedRoles(context);
             SeedUsers(context);
             SeedWishes(context);
-            SeedComments(context);
+            //SeedComments(context);
         }
 
         
