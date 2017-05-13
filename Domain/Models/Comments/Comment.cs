@@ -4,6 +4,7 @@
     {
         public string Content { get; set; }
         public string Creator { get; set; }
-        //public virtual Wishes.Wish Wish { get; set; }
+
+        public virtual Wishes.Wish Wish { get; set; }
     }
 }
