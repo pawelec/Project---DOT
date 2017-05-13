@@ -42,7 +42,7 @@ namespace Web.Controllers
         {
             var wish = this._wishesRepository.Get(id);
             var viewModel = AutoMapper.Mapper.Map<WishViewModel>(wish);
-            return View();
+            return View(viewModel);
         }
         public ActionResult Create()
             => View();

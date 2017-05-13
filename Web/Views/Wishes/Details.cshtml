@@ -1,34 +1,22 @@
 ﻿@model Web.Models.ViewModels.Wishes.WishViewModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Szczegóły";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>WishViewModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Content)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Content)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Created)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Created)
-        </dd>
-
-    </dl>
+<br />
+<div class="container">
+    <div class="panel panel-default">
+        <div class="text-center">
+            <h2>@Model.Content</h2>
+            <p><small>@Model.Created</small></p>
+        </div>
+        <div class="panel-body">
+            <!-- Komentarze -->
+        </div>
+    </div>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id })*@
+    @Html.ActionLink("Powrót do listy", "Index")
 </p>
