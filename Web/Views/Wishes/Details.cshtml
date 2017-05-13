@@ -12,7 +12,15 @@
             <p><small>@Model.Creator, @Model.Created</small></p>
         </div>
         <div class="panel-body">
-            <!-- Komentarze -->
+            @foreach(var comment in Model.Comments.OrderByDescending(comment => comment.Created))
+            {
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h4 class="text-center">@comment.Content</h4>
+                        <p class="pull-right"><small>@comment.Creator, @comment.Created</small></p>
+                    </div>
+                </div>
+            }
         </div>
     </div>
 </div>

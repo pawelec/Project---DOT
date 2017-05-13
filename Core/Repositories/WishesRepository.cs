@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using Core.Contexts;
 using System.Linq;
 using Core.Extensions;
+using System.Data.Entity;
 
 namespace Core.Repositories
 {
@@ -18,17 +19,25 @@ namespace Core.Repositories
             this._Context = context;
         }
 
-        public Wish Get(int key) => this._Context.Wishes.Find(key);
+        public Wish Get(int key) => this._Context.Wishes
+            .Include(wish => wish.Comments)
+            .FirstOrDefault(wish => wish.Id == key);
 
         public ICollection<Wish> Get(Expression<Func<Wish, bool>> predicate)
         {
             if (predicate.IsNull())
-                return this._Context.Wishes.Where(predicate).ToList();
+                return this._Context.Wishes
+                    .Include(wish => wish.Comments)
+                    .Include(wish => wish.Creator)
+                    .Where(predicate).ToList();
             return new List<Wish>();
         }
 
         public ICollection<Wish> Get()
-            => this._Context.Wishes.ToList();
+            => this._Context.Wishes
+                .Include(wish => wish.Comments)
+                .Include(wish => wish.Creator)
+                .ToList();
 
         public int Create(Wish entity)
         {

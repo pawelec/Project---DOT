@@ -14,6 +14,7 @@ namespace Core.Contexts
         public Context()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
         public static Context Create()
