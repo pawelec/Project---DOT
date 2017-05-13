@@ -1,4 +1,5 @@
-﻿using Domain.Models.Users;
+﻿using Domain.Models.Comments;
+using Domain.Models.Users;
 using Domain.Models.Wishes;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
@@ -8,6 +9,7 @@ namespace Core.Contexts
     public class Context : IdentityDbContext<User>
     {
         public virtual DbSet<Wish> Wishes { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
 
         public Context()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -23,6 +25,12 @@ namespace Core.Contexts
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Conventions.Remove<System.Data.Entity.ModelConfiguration.Conventions.PluralizingTableNameConvention>();
+
+            modelBuilder.Entity<Comment>().HasRequired(comment => comment.Wish);
+
+            modelBuilder.Entity<Wish>().HasOptional(wish => wish.Comments);
+            modelBuilder.Entity<Wish>().HasRequired(wish => wish.Creator);
+
         }
     }
 }

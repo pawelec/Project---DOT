@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Interfaces\IUsersRepository.cs" />
     <Compile Include="Interfaces\IWishesRepository.cs" />
+    <Compile Include="Models\Comments\Comment.cs" />
     <Compile Include="Models\Users\User.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Models\Entity.cs" />
