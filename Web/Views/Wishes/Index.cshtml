@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Web.Models.ViewModels.Wishes.WishViewModel>
+﻿@using Web.Helpers
+@model IEnumerable<Web.Models.ViewModels.Wishes.WishViewModel>
 
 @{
     ViewBag.Title = "Życzenia";
@@ -7,7 +8,7 @@
 <h2>Zyczenia</h2>
 
 <p>
-    @Html.ActionLink("Dodaj nowe", "Create")
+    @Html.ActionLink("Dodaj nowe", "Create").If(User.Identity.IsAuthenticated)
 </p>
 
 <div class="panel panel-default">

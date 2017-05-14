@@ -20,7 +20,7 @@ namespace Web.Controllers
             this._wishesRepository = new WishesRepository(cxt);
         }
 
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public PartialViewResult GetNewestCommentsPartial()
         {
             var newestComments = AutoMapper.Mapper.Map<IEnumerable<CommentViewModel>>(

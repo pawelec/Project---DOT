@@ -9,7 +9,7 @@ using Web.Models.ViewModels.Wishes;
 
 namespace Web.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class WishesController : Controller
     {
         protected readonly IWishesRepository _wishesRepository;
@@ -22,7 +22,7 @@ namespace Web.Controllers
             this._usersRepository = new UsersRepository(cxt);
         }
 
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public ActionResult Index()
         {
             var wishes = this._wishesRepository.Get();
@@ -30,7 +30,7 @@ namespace Web.Controllers
             return View(viewModels);
         }
 
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public PartialViewResult GetNewestWishesPartial()
         {
             var newestWishes = AutoMapper.Mapper.Map<IEnumerable<WishViewModel>>(

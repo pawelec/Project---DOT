@@ -1,4 +1,5 @@
-﻿@model Web.Models.ViewModels.Wishes.WishViewModel
+﻿@using Web.Helpers
+@model Web.Models.ViewModels.Wishes.WishViewModel
 
 @{
     ViewBag.Title = "Szczegóły";
@@ -43,6 +44,9 @@
     </div>
 </div>
 <p>
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id })*@
+    @Html.ActionLink("Usuń", "Delete", "Wishes", new { id = Model.Id }).If(User.IsInRole("Admin"))
+    @if (User.IsInRole("Admin")) {
+        @Html.Raw("|")
+    }
     @Html.ActionLink("Powrót do listy", "Index")
 </p>
