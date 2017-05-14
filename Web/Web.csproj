@@ -194,6 +194,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Attributes\StringNullOrWhitespaceValidationAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\WishesController.cs" />
@@ -204,6 +205,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ViewModels\BaseViewModelEntity.cs" />
     <Compile Include="Models\ViewModels\Comments\CommentViewModel.cs" />
+    <Compile Include="Models\ViewModels\Comments\CreateCommentViewModel.cs" />
     <Compile Include="Models\ViewModels\Wishes\CreateWishViewModel.cs" />
     <Compile Include="Models\ViewModels\Wishes\WishViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -274,6 +276,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Comments\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

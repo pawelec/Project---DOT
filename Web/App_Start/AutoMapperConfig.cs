@@ -12,6 +12,7 @@
                     .ForMember(dst => dst.Creator, opt => opt.MapFrom(src => src.Creator));
 
                 cfg.CreateMap<Web.Models.ViewModels.Wishes.CreateWishViewModel, Domain.Models.Wishes.Wish>();
+                cfg.CreateMap<Web.Models.ViewModels.Comments.CreateCommentViewModel, Domain.Models.Comments.Comment>();
             });
         }
     }
