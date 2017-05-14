@@ -31,7 +31,7 @@ namespace Web.Controllers
         public ActionResult Create([Bind(Include = "Content, Creator, WishId")] CreateCommentViewModel viewModel)
         {
             if (!ModelState.IsValid)
-                return RedirectToAction("Details", "Wish", new { Id = viewModel.WishId });
+                return RedirectToAction("Details", "Wishes", new { Id = viewModel.WishId });
 
             var domainComment = AutoMapper.Mapper.Map<Comment>(viewModel);
             domainComment.Wish = this._wishesRepository.Get(viewModel.WishId);
