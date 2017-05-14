@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Domain.Models.Comments;
 using System.Linq.Expressions;
 using Core.Contexts;
-
+using System.Data.Entity;
 namespace Core.Repositories
 {
     public class CommentsRepository : ICommentsRepository
@@ -34,8 +34,6 @@ namespace Core.Repositories
         }
 
         public ICollection<Comment> Get()
-        {
-            throw new NotImplementedException();
-        }
+            => this._Context.Comments.Include(comment => comment.Wish).ToList();
     }
 }

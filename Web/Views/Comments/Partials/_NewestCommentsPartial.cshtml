@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Web.Models.ViewModels.Comments.CommentViewModel>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Najnowsze komentarze</h3>
+    </div>
+    <div class="panel-body">
+        @foreach(var comment in Model)
+        {
+            @Html.Partial("Partials/_CommentPartial", comment)
+        }
+    </div>
+</div>

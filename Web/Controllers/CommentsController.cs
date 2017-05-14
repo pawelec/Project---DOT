@@ -1,6 +1,8 @@
 ﻿using Core.Repositories;
 using Domain.Interfaces;
 using Domain.Models.Comments;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using Web.Models.ViewModels.Comments;
 
@@ -18,6 +20,13 @@ namespace Web.Controllers
             this._wishesRepository = new WishesRepository(cxt);
         }
 
+        [AllowAnonymous]
+        public PartialViewResult GetNewestCommentsPartial()
+        {
+            var newestComments = AutoMapper.Mapper.Map<IEnumerable<CommentViewModel>>(
+                this._commentsRepository.Get().OrderByDescending(comment => comment.Created).Take(3));
+            return PartialView("Partials/_NewestCommentsPartial", newestComments);
+        }
         [HttpPost, /*ValidateAntiForgeryToken*/]
         public ActionResult Create(/*[Bind(Include = "Content")] */CreateCommentViewModel viewModel)
         {
