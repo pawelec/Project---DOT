@@ -46,5 +46,9 @@ namespace Core.Repositories
             this._Context.SaveChanges();
             return id;
         }
+        public void Update(Wish wish)
+        {
+    
+        }
     }
 }

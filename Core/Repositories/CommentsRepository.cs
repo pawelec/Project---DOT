@@ -19,7 +19,11 @@ namespace Core.Repositories
         }
 
         public int Create(Comment entity)
-            => (this._Context.Comments.Add(entity)).Id;
+        {
+            var id = (this._Context.Comments.Add(entity)).Id;
+            this._Context.SaveChanges();
+            return id;
+        }
 
         public Comment Get(int key)
         {

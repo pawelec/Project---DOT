@@ -28,7 +28,7 @@ namespace Web.Controllers
             return PartialView("Partials/_NewestCommentsPartial", newestComments);
         }
         [HttpPost, /*ValidateAntiForgeryToken*/]
-        public ActionResult Create(/*[Bind(Include = "Content")] */CreateCommentViewModel viewModel)
+        public ActionResult Create([Bind(Include = "Content, Creator, WishId")] CreateCommentViewModel viewModel)
         {
             if (!ModelState.IsValid)
                 return RedirectToAction("Details", "Wish", new { Id = viewModel.WishId });
@@ -37,7 +37,7 @@ namespace Web.Controllers
             domainComment.Wish = this._wishesRepository.Get(viewModel.WishId);
             this._commentsRepository.Create(domainComment);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Wishes", new { Id = viewModel.WishId });
         }
     }
 }

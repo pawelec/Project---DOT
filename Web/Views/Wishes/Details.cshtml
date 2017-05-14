@@ -25,6 +25,7 @@
         <div class="panel-footer">
             @using (Html.BeginForm("Create", "Comments", FormMethod.Post))
             {
+                @Html.AntiForgeryToken();
                 @*@Html.ValidationSummary(true)*@
                 <div class="form-group">
                     <div>
