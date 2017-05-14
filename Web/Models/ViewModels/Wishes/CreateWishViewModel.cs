@@ -8,6 +8,7 @@ namespace Web.Models.ViewModels.Wishes
     {
         [Required(AllowEmptyStrings = false, ErrorMessage = "Treść jest wymagana!")]
         [StringNullOrWhitespaceValidation]
+        [Display(Name = "Treść")]
         public string Content { get; set; }
         public DateTime Created = DateTime.UtcNow;
     }
