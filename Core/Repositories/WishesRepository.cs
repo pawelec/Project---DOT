@@ -21,6 +21,7 @@ namespace Core.Repositories
 
         public Wish Get(int key) => this._Context.Wishes
             .Include(wish => wish.Comments)
+            .Include(wish => wish.Creator)
             .FirstOrDefault(wish => wish.Id == key);
 
         public ICollection<Wish> Get(Expression<Func<Wish, bool>> predicate)
