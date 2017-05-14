@@ -26,9 +26,7 @@ namespace Core.Repositories
         }
 
         public Comment Get(int key)
-        {
-            throw new NotImplementedException();
-        }
+            => this._Context.Comments.Find(key);
 
         public ICollection<Comment> Get(Expression<Func<Comment, bool>> predicate)
         {
@@ -37,5 +35,10 @@ namespace Core.Repositories
 
         public ICollection<Comment> Get()
             => this._Context.Comments.Include(comment => comment.Wish).ToList();
+        public bool Delete(Comment comment)
+        {
+            this._Context.Entry<Comment>(comment).State = EntityState.Deleted;
+            return this._Context.SaveChanges() != 0 ? true : false;
+        }
     }
 }

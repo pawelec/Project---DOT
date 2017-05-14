@@ -20,6 +20,18 @@
                         <h4 class="text-center">@comment.Content</h4>
                         <p class="pull-right"><small>@comment.Creator, @comment.Created</small></p>
                     </div>
+                    <div class="panel-danger">
+                        @if (User.IsInRole("Admin"))
+                        {
+                            using (Html.BeginForm("Delete", "Comments", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                <input hidden type="number" name="id" value="@comment.Id" />
+
+                                <button type="submit" class="btn" value="Delete">Usuń</button>
+                            }
+                        }
+                    </div>
                 </div>
             }
         </div>

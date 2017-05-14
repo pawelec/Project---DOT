@@ -39,5 +39,11 @@ namespace Web.Controllers
 
             return RedirectToAction("Details", "Wishes", new { Id = viewModel.WishId });
         }
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult Delete(int id)
+        {
+            this._commentsRepository.Delete(this._commentsRepository.Get(id));
+            return RedirectToAction("Index", "Wishes");
+        }
     }
 }
