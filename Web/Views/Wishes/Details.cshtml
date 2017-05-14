@@ -44,9 +44,15 @@
     </div>
 </div>
 <p>
-    @Html.ActionLink("Usuń", "Delete", "Wishes", new { id = Model.Id }).If(User.IsInRole("Admin"))
-    @if (User.IsInRole("Admin")) {
-        @Html.Raw("|")
+    @if (User.IsInRole("Admin"))
+    {
+        using (Html.BeginForm("Delete", "Wishes", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.Id)
+
+            <button type="submit" class="btn" value="Delete">Usuń</button>
+        }
     }
     @Html.ActionLink("Powrót do listy", "Index")
 </p>

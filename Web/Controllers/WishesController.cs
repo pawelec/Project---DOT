@@ -59,5 +59,11 @@ namespace Web.Controllers
 
             return RedirectToAction("Index");
         }
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult Delete(int id)
+        {
+            this._wishesRepository.Delete(this._wishesRepository.Get(id));
+            return RedirectToAction("Index");
+        }
     }
 }

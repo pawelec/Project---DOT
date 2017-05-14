@@ -29,7 +29,8 @@ namespace Core.Contexts
 
             modelBuilder.Entity<Wish>()
                 .HasMany(wish => wish.Comments)
-                .WithRequired(comment => comment.Wish);
+                .WithRequired(comment => comment.Wish)
+                .WillCascadeOnDelete(true);
 
         }
     }

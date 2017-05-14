@@ -50,5 +50,11 @@ namespace Core.Repositories
         {
     
         }
+
+        public bool Delete(Wish wish)
+        {
+            this._Context.Entry<Wish>(wish).State = EntityState.Deleted;
+            return this._Context.SaveChanges() != 0 ? true : false;
+        }
     }
 }
