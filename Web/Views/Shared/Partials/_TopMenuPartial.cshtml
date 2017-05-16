@@ -11,6 +11,7 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Panel administratora", "Index", "Admin").If(User.IsInRole("Admin"))</li>
                 <li>@Html.ActionLink("Strona główna", "Index", "Home")</li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
