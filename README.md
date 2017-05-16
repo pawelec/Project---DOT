@@ -2,6 +2,8 @@
 It is a web application where you can list wishes and comment them. 
 As logged user you can add new wish. 
 
+It is a final project for DOT subject.
+
 # Technologies
 App is based on "ASP.NET MVC". Connection and operations to database are realized by "Entity Framework". 
 Data models are realized in "Code first" approach. 
