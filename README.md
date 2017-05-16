@@ -1,31 +1,27 @@
 # Introduction
-It's web application where you can list wishes, comment them and add new as logged user.
+It is a web application where you can list wishes and comment them. 
+As logged user you can add new wish. 
 
-It is a final project for DOT subject.
+# Technologies
+App is based on "ASP.NET MVC". Connection and operations to database are realized by "Entity Framework". 
+Data models are realized in "Code first" approach. 
 
-# 
-App is based on ASP.NET MVC. Database connection is realized by Entity Framework. 
+# How to use
 
-# Use
-## As annonymous can: 
-1. List wishes
-2. Enter wish details
-3. List comments for wish
-4. Add comment for wish
+As anonymous user you can list latest wishes, comments and full list of wish. 
+Also inside which details you can display comments for this wish. 
+Additionally not logged users can comment wish. 
 
-## As logged user with role "User" aditionaly you can:
-1. Add new wish
+As logged user with "User" role you can additionally add new wish. 
 
-## As loggeed user with role "Admin" aditionaly you can:
-1. Delete wishes
-2. Delete comments
-
+As logged user with "Admin" role additionally you can delete wishes and comments.
 
 # Credentials
-1. User with "User" role
-login: "user@user.user"
-password: "ChangeItAsap!"
 
-2. User with "Admin" role
-login: "admin@admin.admin"
-password: "ChangeItAsap!"
+    login: user@user.user
+    password: "ChangeItAsap!"
+    Role: "User"
+
+    login: admin@admin.admin
+    password: "ChangeItAsap!"
+    Role: "Admin"
