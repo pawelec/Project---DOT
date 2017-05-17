@@ -1,5 +1,6 @@
 # Introduction
 It is a web application where you can list wishes and comment them. 
+Additionally you can tag wish as observed. This functionality is based on session per user. 
 As logged user you can add new wish. 
 
 It is a final project for DOT subject.
