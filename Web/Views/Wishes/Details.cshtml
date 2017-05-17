@@ -9,7 +9,7 @@
 <div class="container">
     <div class="panel panel-default">
         <div class="panel-heading text-center">
-            <h2>@Model.Content</h2>
+            <h2>@Model.Content <a href="/Wishes/Observe/@Model.Id"><span class="pull-right glyphicon glyphicon-@(ViewBag.IsWishObserved == true ? "star" : "star-empty")" aria-hidden="true"></span></a></h2>
             <p><small>@Model.Creator, @Model.Created</small></p>
         </div>
         <div class="panel-body">
@@ -18,7 +18,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <h4 class="text-center">@comment.Content</h4>
-                        <p class="pull-right"><small>@comment.Creator, @comment.Created</small></p>
+                        <p class="pull-right"><small>@comment.Creator, @comment.Created</small><p>
                     </div>
                     <div class="panel-danger">
                         @if (User.IsInRole("Admin"))

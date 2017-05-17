@@ -10,6 +10,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Web.Models;
 using Domain.Models.Users;
+using System.Collections.Generic;
+using Domain.Models.Wishes;
 
 namespace Web.Controllers
 {
@@ -80,7 +82,10 @@ namespace Web.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    {
+                        Session["Observed"] = new List<Wish>();
+                        return RedirectToLocal(returnUrl);
+                    }
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -393,6 +398,7 @@ namespace Web.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            Session["Observed"] = new List<Wish>();
             return RedirectToAction("Index", "Home");
         }
 

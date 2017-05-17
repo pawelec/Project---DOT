@@ -42,6 +42,11 @@ namespace Web.Controllers
         {
             var wish = this._wishesRepository.Get(id);
             var viewModel = AutoMapper.Mapper.Map<WishViewModel>(wish);
+            ViewBag.IsWishObserved = Session["Observed"] != null ? 
+                ((List<Wish>)Session["Observed"]).FirstOrDefault(w => w.Id == id) != null ? 
+                    true : 
+                    false : 
+                false;
             return View(viewModel);
         }
         public ActionResult Create()
@@ -64,6 +69,23 @@ namespace Web.Controllers
         {
             this._wishesRepository.Delete(this._wishesRepository.Get(id));
             return RedirectToAction("Index");
+        }
+        public ActionResult Observe(int id)
+        {
+            var wish = this._wishesRepository.Get(id);
+            if (wish == null)
+                return RedirectToAction("Details", "Wishes", new { id = id });
+
+            if (Session["Observed"] == null)
+                Session["Observed"] = new List<Wish>();
+            var observed = ((List<Wish>)Session["Observed"]);
+               
+            if (observed.FirstOrDefault(w => w.Id == wish.Id) != null)
+                observed.Remove(observed.First(w => w.Id == wish.Id));
+            else
+                observed.Add(wish);
+
+            return RedirectToAction("Details", "Wishes", new { id = id });
         }
     }
 }

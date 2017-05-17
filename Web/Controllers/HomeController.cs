@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Models.Wishes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,7 @@ namespace Web.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Observed = (List<Wish>)Session["Observed"] ?? new List<Wish>();
             return View();
         }
     }

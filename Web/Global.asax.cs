@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using Domain.Models.Wishes;
+using System.Collections.Generic;
+using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
