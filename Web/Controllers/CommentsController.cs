@@ -20,7 +20,6 @@ namespace Web.Controllers
             this._wishesRepository = new WishesRepository(cxt);
         }
 
-        //[AllowAnonymous]
         public PartialViewResult GetNewestCommentsPartial()
         {
             var newestComments = AutoMapper.Mapper.Map<IEnumerable<CommentViewModel>>(
@@ -39,6 +38,7 @@ namespace Web.Controllers
 
             return RedirectToAction("Details", "Wishes", new { Id = viewModel.WishId });
         }
+        [Authorize(Roles = "Admin")]
         [HttpPost, ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
