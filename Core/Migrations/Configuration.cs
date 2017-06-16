@@ -15,7 +15,7 @@ namespace Core.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             Database.SetInitializer<Contexts.Context>(new DropCreateDatabaseAlways<Contexts.Context>());
         }
 
